@@ -1,0 +1,5 @@
+<div class="span16">
+  ${structure: view.render_messages()}
+
+  ${structure: wrapped_content}
+</div>

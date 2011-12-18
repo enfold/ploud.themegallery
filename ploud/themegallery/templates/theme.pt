@@ -1,0 +1,37 @@
+<tal:block define="url request.resource_url(context)">
+  <div class="span4 columns">
+    <div class="media-grid">
+      <a href="${request.url}/preview">
+	<img class="thumbnail" width="210" src="${request.url}/thumbnail" 
+	     tal:condition="context.preview" />
+      </a>
+    </div>
+  </div>
+
+  <div class="span9 columns">
+    <h1>${context.title} <small>Status: ${context.status}</small></h1>
+    <p>${context.description}</p>
+
+    <hr />
+    <h3>Downloads</h3>
+    <ul>
+      <li tal:repeat="item view.files">
+	<a href="${url}${item.__name__}">
+	  Version: ${item.version}
+	</a> 
+	<p>
+	  <small>Modified ${view.format.datetime(item.created)}</small>
+	</p>
+      </li>
+    </ul>
+  </div>
+
+  <div class="span2 columns" tal:condition="view.actions">
+    <h4>Actions</h4>
+    <ul>
+      <li tal:repeat="item view.actions">
+	<a href="${item['url']}">${item['title']}</a>
+      </li>
+    </ul>
+  </div>
+</tal:block>

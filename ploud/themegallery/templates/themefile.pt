@@ -1,0 +1,35 @@
+<tal:block define="url request.resource_url(context);
+		   theme context.__parent__">
+  <div class="span4 columns">
+    <div class="media-grid">
+      <a href="${url}../preview">
+	<img class="thumbnail" width="210" src="${url}../thumbnail" 
+	     tal:condition="theme.preview" />
+      </a>
+    </div>
+  </div>
+
+  <div class="span9 columns">
+    <h1>${theme.title} <small>Status: ${theme.status}</small></h1>
+    <a href="${url}../">Back to theme</a>
+    <p>${theme.description}</p>
+
+    <hr />
+    <h3>Download</h3>
+    <a href="${url}download.html">
+      Version: ${context.version}
+    </a> 
+    <p>
+      <small>Modified ${view.format.datetime(context.created)}</small>
+    </p>
+  </div>
+
+  <div class="span2 columns" tal:condition="view.actions">
+    <h4>Actions</h4>
+    <ul>
+      <li tal:repeat="item view.actions">
+	<a href="${item['url']}">${item['title']}</a>
+      </li>
+    </ul>
+  </div>
+</tal:block>

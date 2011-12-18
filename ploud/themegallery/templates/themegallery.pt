@@ -1,0 +1,39 @@
+<tal:block define="url request.resource_url(context)">
+  <div class="span13">
+    <p tal:condition="not view.themes">
+      No themes found.
+    </p>
+
+    ${structure: view.render_tmpl(themes = view.themes, url = url)}
+
+    <div class="pagination" tal:condition="len(view.pages)>1">
+      <ul>
+	<li class="${'prev' if view.prev else 'prev disabled'}">
+	  <a href="?batch=${view.prev}">&larr; Previous</a>
+	</li>
+
+	<tal:block repeat="idx view.pages">
+	  <li tal:define="klass '' if idx else 'disabled'"
+	      tal:attributes="class 'active' if idx==view.current else klass">
+	    <a href="?batch=${idx}">${idx if idx else '...'}</a>
+	  </li>
+	</tal:block>
+
+	<li class="${'next' if view.next else 'next disabled'}">
+	  <a href="?batch=${view.next}">
+	    Next &rarr;
+	  </a>
+	</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="span2 columns" tal:condition="view.actions">
+    <h4>Actions</h4>
+    <ul>
+      <li tal:repeat="item view.actions">
+	<a href="${item['url']}">${item['title']}</a>
+      </li>
+    </ul>
+  </div>
+</tal:block>

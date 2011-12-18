@@ -1,0 +1,33 @@
+<tal:block define="url request.resource_url(context)">
+  <div class="span13">
+    <h1 tal:condition="not view.themes">
+      You dont have themes
+    </h1>
+    <h1 tal:condition="view.themes">
+      Your themes
+    </h1>
+
+    ${structure: view.render_tmpl(view.themes, url)}
+
+    <div class="pagination" tal:condition="len(view.pages)>1">
+      <ul>
+	<li class="${'prev' if view.prev else 'prev disabled'}">
+	  <a href="?batch=${view.prev}">&larr; Previous</a>
+	</li>
+
+	<tal:block repeat="idx view.pages">
+	  <li tal:define="klass '' if idx else 'disabled'"
+	      tal:attributes="class 'active' if idx==view.current else klass">
+	    <a href="?batch=${idx}">${idx if idx else '...'}</a>
+	  </li>
+	</tal:block>
+
+	<li class="${'next' if view.next else 'next disabled'}">
+	  <a href="?batch=${view.next}">
+	    Next &rarr;
+	  </a>
+	</li>
+      </ul>
+    </div>
+  </div>
+</tal:block>

@@ -1,0 +1,20 @@
+<tal:block tal:repeat="theme themes">
+  <div class="row" tal:define="turl '%s%s'%(url, theme.__name__)">
+    <div class="span4">
+      <div class="media-grid">
+	<a href="${turl}/preview">
+	  <img class="thumbnail" width="210" src="${turl}/thumbnail"
+	       tal:condition="theme.thumbnail" />
+	</a>
+      </div>
+    </div>
+
+    <div class="span8">
+      <h3><a href="${turl}/">${theme.title or theme.__name__}</a>
+	<small>Status: ${theme.status}</small>
+      </h3>
+      <p>${theme.description}</p>
+    </div>
+  </div>
+  <hr />
+</tal:block>

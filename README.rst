@@ -6,12 +6,16 @@ ploud theme gallery
 Build
 =====
 
+Build app::
+
   >> python2.7 ./bootstrap.py -d
   >> ./bin/buildout -c devel.cfg
 
 
 Start app
 =========
+
+Start wsgiref based service::
 
   >> ./bin/pserve development.ini
 

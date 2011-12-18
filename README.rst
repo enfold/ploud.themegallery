@@ -6,8 +6,13 @@ ploud theme gallery
 Build
 =====
 
+Clone github repo::
+
+  >> git clone git://github.com/fafhrd91/ploud.themegallery.git
+
 Build app::
 
+  >> cd ploud.themegallery
   >> python2.7 ./bootstrap.py -d
   >> ./bin/buildout -c devel.cfg
 

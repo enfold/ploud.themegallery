@@ -8,14 +8,13 @@ from .permissions import Manager
 from .gallery import ThemeGallery, ThemeGalleryPolicy
 
 
-APP_FACTORY = ptah.cms.ApplicationFactory(
-    ThemeGallery, '/',
-    policy=ThemeGalleryPolicy,
-    name='themes', title='Ploud theme gallery')
-
-
 def main(global_config, **settings):
     """ themes app """
+    APP_FACTORY = ptah.cms.ApplicationFactory(
+        ThemeGallery, '/',
+        policy=ThemeGalleryPolicy,
+        name='themes', title='Ploud theme gallery')
+
     config = Configurator(root_factory=APP_FACTORY, settings=settings)
     config.include('ploud.themegallery')
 

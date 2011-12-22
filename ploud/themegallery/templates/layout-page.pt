@@ -45,7 +45,9 @@
     <div style="margin-top: 60px;">
       <div class="inner">
 	<div class="container">
-	  ${structure: wrapped_content}
+	  <div class="row">
+  	     ${structure: wrapped_content}
+  	  </div>
 	</div>
       </div>
     </div>

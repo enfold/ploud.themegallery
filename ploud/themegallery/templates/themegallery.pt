@@ -1,5 +1,5 @@
 <tal:block define="url request.resource_url(context)">
-  <div class="span13">
+  <div class="span12">
     <p tal:condition="not view.themes">
       No themes found.
     </p>
@@ -28,7 +28,7 @@
     </div>
   </div>
 
-  <div class="span2 columns" tal:condition="view.actions">
+  <div class="span2" tal:condition="view.actions">
     <h4>Actions</h4>
     <ul>
       <li tal:repeat="item view.actions">

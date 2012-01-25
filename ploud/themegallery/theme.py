@@ -2,6 +2,7 @@
 import PIL, PIL.Image
 import sqlalchemy as sqla
 from cStringIO import StringIO
+from pyramid.compat import text_type
 from pyramid.threadlocal import get_current_registry
 from pyramid.httpexceptions import HTTPFound, HTTPNotFound
 
@@ -68,7 +69,7 @@ class Theme(ptah.cms.Container):
     email = sqla.Column(sqla.Unicode)
     attribution = sqla.Column(sqla.Unicode)
     featured = sqla.Column(sqla.Boolean)
-    status = sqla.Column(sqla.Unicode, default='private')
+    status = sqla.Column(sqla.Unicode, default=text_type('private'))
 
     preview = sqla.Column(sqla.Unicode)
     thumbnail = sqla.Column(sqla.Unicode)

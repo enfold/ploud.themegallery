@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 requires = [
     'setuptools',
     'PIL',
-    'ptah >= 0.2dev',
+    'ptah >= 0.2.1',
     ]
 
 

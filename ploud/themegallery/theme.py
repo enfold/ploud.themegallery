@@ -83,7 +83,7 @@ class Theme(ptah.cms.Container):
         self.status = status
 
         pmap = permissions.status[status]
-        self.__acls__ = [pmap.name]
+        self.__acls__ = [pmap.id]
 
     @ptah.cms.action(permission=ptah.cms.ModifyContent)
     def update(self, **data):
@@ -107,7 +107,7 @@ class Theme(ptah.cms.Container):
 
             generateThumbnail(self)
 
-        get_current_registry().notify(ptah.cms.ContentModifiedEvent(self))
+        get_current_registry().notify(ptah.events.ContentModifiedEvent(self))
 
 
 def generateThumbnail(theme, width=210):

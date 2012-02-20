@@ -1,10 +1,13 @@
 import ptah
 from ptah import form
 from pyramid.view import view_config
+from pyramid.httpexceptions import HTTPFound
 
+import events
 import permissions
 from gallery import ThemeGallery
 from theme import Theme, ThemeSchema
+from themefile import ThemeFile
 from themefile import ThemeFileSchema
 
 

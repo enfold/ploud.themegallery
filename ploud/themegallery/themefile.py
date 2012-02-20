@@ -52,4 +52,4 @@ class ThemeFile(ptah.cms.Content):
                 mimetype = fd['mimetype'])
 
         self.version = data['version']
-        get_current_registry().notify(ptah.cms.ContentModifiedEvent(self))
+        get_current_registry().notify(ptah.events.ContentModifiedEvent(self))

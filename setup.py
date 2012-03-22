@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 requires = [
     'setuptools',
-    'PIL',
+    'Pillow',
     'ptah >= 0.2.1',
     ]
 
